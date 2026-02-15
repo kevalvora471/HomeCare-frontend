@@ -1,0 +1,66 @@
+:host {
+    display: block;
+    width: 100%;
+    --primary-color: #4338ca;
+    --primary-hover: #3730a3;
+    --white: #ffffff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0 18px 0;
+    background: var(--white);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.btn-signin {
+    background: var(--primary-color);
+    color: var(--white) !important;
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-signin:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 0;
+    width: 100%;
+}

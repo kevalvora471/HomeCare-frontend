@@ -1,0 +1,79 @@
+<div class="container">
+  <app-navbar></app-navbar>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Home services at <br>your doorstep</h1>
+      <p>Your one-stop destination for home care.</p>
+
+      <div class="search-container">
+        <div class="search-box">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <input type="text" placeholder="Search for 'Ac Cleaning Service'" class="search-input">
+          <button class="btn-search">Search</button>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value">5M+</span>
+            <span class="stat-label">Customers Globally</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value">500+</span>
+            <span class="stat-label">Services</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-images">
+      <div class="deco-dot dot-top"></div>
+      <div class="deco-dot dot-mid"></div>
+      <div class="deco-dot dot-bottom"></div>
+
+      <div class="image-grid">
+        <div class="grid-item item-1">
+          <img src="/hero-1.jpg" alt="Service 1">
+        </div>
+        <div class="grid-item item-2">
+          <img src="/hero-2.jpg" alt="Service 2">
+        </div>
+        <div class="grid-item item-3">
+          <img src="/hero-3.jpg" alt="Service 3">
+        </div>
+        <div class="grid-item item-4">
+          <img src="/hero-4.jpg" alt="Service 4">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Carousel -->
+  <app-category-carousel [categories]="categories"></app-category-carousel>
+</div>
