@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoryCarouselComponent } from '../components/category-carousel/category-carousel';
+import { ServiceCarouselComponent } from '../components/service-carousel/service-carousel';
 import { NavbarComponent } from '../components/navbar/navbar';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, CategoryCarouselComponent, NavbarComponent],
+  imports: [CommonModule, CategoryCarouselComponent, ServiceCarouselComponent, NavbarComponent],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -14,14 +15,14 @@ export class HomeComponent {
 
   categories = [
     { name: "Women's Salon & Spa", icon: "/make-up.png" },
-    { name: "Men's Salon & Massage", icon: "/barber.png" },
-    { name: "Ac & Appliance Repair", icon: "/ac-repair.png" },
-    { name: "Cleaning", icon: "/cleaning.png" },
-    { name: "Electrician, Plumber & Carpenter", icon: "/tools.png" },
-    { name: "Painting & Water Proofing", icon: "/paint-roller.png" },
-    { name: "Pest Control", icon: "/pest-control.png" },
-    { name: "Home Painting", icon: "/painting.png" },
-    { name: "Bathroom & Kitchen Cleaning", icon: "/cleaning-supply.png" },
+    { name: "Men's Salon & Massage", icon: "/make-up.png" },
+    { name: "Ac & Appliance Repair", icon: "/make-up.png" },
+    { name: "Cleaning", icon: "/make-up.png" },
+    { name: "Electrician, Plumber & Carpenter", icon: "/make-up.png" },
+    { name: "Painting & Water Proofing", icon: "/make-up.png" },
+    { name: "Pest Control", icon: "/make-up.png" },
+    { name: "Home Painting", icon: "/make-up.png" },
+    { name: "Bathroom & Kitchen Cleaning", icon: "/make-up.png" },
     { name: "Appliance Repair", icon: "/repair-tool.png" },
     { name: "Packers & Movers", icon: "/moving-truck.png" },
     { name: "Home Painting", icon: "/painting.png" },
@@ -33,49 +34,77 @@ export class HomeComponent {
 
   popularServices = [
     {
-      name: "Sofa Cleaning",
-      rating: 4.8,
-      reviews: "1.2k",
-      price: 499,
-      image: "/sofa-cleaning.jpg"
+      name: "Washing machine checkup",
+      price: 10.99,
+      image: "/washing-machine.png"
     },
     {
-      name: "AC Repair & Service",
-      rating: 4.9,
-      reviews: "2.5k",
-      price: 299,
-      image: "/ac-repair.jpg"
+      name: "AC repair (split/ window)",
+      price: 23.99,
+      image: "/washing-machine.png"
     },
     {
-      name: "Full Home Cleaning",
-      rating: 4.7,
-      reviews: "3k",
-      price: 1999,
-      image: "/home-cleaning.jpg"
+      name: "Intense bathroom cleaning",
+      price: 31.99,
+      image: "/washing-machine.png"
     },
     {
-      name: "Bathroom Cleaning",
-      rating: 4.9,
-      reviews: "800",
-      price: 399,
-      image: "/bathroom-cleaning.jpg"
+      name: "Classic bathroom cleaning",
+      price: 11.99,
+      image: "/washing-machine.png"
+    },
+    {
+      name: "Tap Repair",
+      price: 59.9,
+      image: "/washing-machine.png"
+    },
+    {
+      name: "Washing machine checkup",
+      price: 10.99,
+      image: "/washing-machine.png"
+    },
+    {
+      name: "AC repair (split/ window)",
+      price: 23.99,
+      image: "/washing-machine.png"
     }
   ];
 
-  applianceServices = [
+  allServices = [
     {
-      name: "Fully Automatic Machine Checkup",
-      duration: "45 mins",
-      price: 199,
-      features: ["Up to 30 days warranty", "Genuine spare parts", "Professional Technicians"],
-      image: "/washing-machine.jpg"
+      name: "Tap Repairs",
+      price: 40.9,
+      image: "/washing-machine.png"
     },
     {
-      name: "Split AC Service",
-      duration: "60 mins",
-      price: 599,
-      features: ["Power Jet AC Cleaning", "Gas leak checkup", "Deep cleaning of filters"],
-      image: "/ac-repair.jpg"
+      name: "Fan repair (ceiling/ exhaust/ wall)",
+      price: 24.00,
+      image: "/washing-machine.png"
+    },
+    {
+      name: "Jet spray (installation/ repair)",
+      price: 89.9,
+      image: "/washing-machine.png"
+    },
+    {
+      name: "Flush tank repair (external PVC)",
+      price: 14.99,
+      image: "/washing-machine.png"
+    },
+    {
+      name: "Drill & hang (wall decor)",
+      price: 24.00,
+      image: "/washing-machine.png"
+    },
+    {
+      name: "Tap Repairs",
+      price: 40.9,
+      image: "/washing-machine.png"
+    },
+    {
+      name: "Fan repair (ceiling/ exhaust/ wall)",
+      price: 24.00,
+      image: "/washing-machine.png"
     }
   ];
 }
