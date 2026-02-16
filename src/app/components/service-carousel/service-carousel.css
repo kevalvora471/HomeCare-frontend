@@ -230,6 +230,7 @@
 }
 
 /* Responsive adjustments */
+/* Responsive adjustments */
 @media (max-width: 1024px) {
     .service-item {
         flex: 0 0 calc(100% / 3);
@@ -244,10 +245,32 @@
     .section-header h2 {
         font-size: 24px;
     }
+
+    .nav-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .nav-arrow svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 @media (max-width: 480px) {
     .service-item {
         flex: 0 0 100%;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .nav-arrow.prev {
+        left: -8px;
+    }
+
+    .nav-arrow.next {
+        right: -8px;
     }
 }

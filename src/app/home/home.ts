@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoryCarouselComponent } from '../components/category-carousel/category-carousel';
 import { ServiceCarouselComponent } from '../components/service-carousel/service-carousel';
+import { JoinUsComponent } from '../components/join-us/join-us';
+import { FooterComponent } from '../components/footer/footer';
 import { NavbarComponent } from '../components/navbar/navbar';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, CategoryCarouselComponent, ServiceCarouselComponent, NavbarComponent],
+  imports: [CommonModule, CategoryCarouselComponent, ServiceCarouselComponent, JoinUsComponent, FooterComponent, NavbarComponent],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -108,4 +110,3 @@ export class HomeComponent {
     }
   ];
 }
-

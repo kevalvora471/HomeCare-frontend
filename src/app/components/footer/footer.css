@@ -1,0 +1,197 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 60px 0 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* Brand Section */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.brand-logo {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+}
+
+.logo-home {
+    color: #4338ca;
+}
+
+.logo-care {
+    color: #1a1a1a;
+}
+
+/* Links Sections */
+.footer-links {
+    display: contents;
+}
+
+.link-column h4,
+.footer-download h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+}
+
+.link-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.link-column a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.link-column a:hover {
+    color: #4338ca;
+}
+
+/* Download Section */
+.app-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.store-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+    width: fit-content;
+    min-width: 160px;
+}
+
+.store-btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.btn-text span {
+    font-size: 10px;
+}
+
+.btn-text strong {
+    font-size: 16px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.footer-bottom p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.social-links a {
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #4338ca;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 32px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+        margin-bottom: 16px;
+    }
+
+    .footer-links {
+        display: contents;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-download {
+        grid-column: 1 / -1;
+        margin-top: 16px;
+    }
+
+    .app-buttons {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .app-buttons {
+        flex-direction: column;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}
