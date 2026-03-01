@@ -1,13 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+/* Add ALL of this to your global styles.css */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ── Manage Dialog ─────────────────────── */
+.manage-dialog-panel .mat-mdc-dialog-container,
+.manage-dialog-panel .mdc-dialog__surface,
+.manage-dialog-panel .mat-mdc-dialog-surface {
+  padding: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ── Add Item Dialog ───────────────────── */
+.add-item-dialog-panel .mat-mdc-dialog-container,
+.add-item-dialog-panel .mdc-dialog__surface,
+.add-item-dialog-panel .mat-mdc-dialog-surface {
+  padding: 0 !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ── Prevent Material overriding button styles inside dialogs ── */
+.manage-dialog-panel button,
+.add-item-dialog-panel button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.manage-dialog-panel .btn-save,
+.add-item-dialog-panel .btn-save {
+  background: #4b44d6 !important;
+  color: #ffffff !important;
+}
+
+.manage-dialog-panel .btn-cancel,
+.add-item-dialog-panel .btn-cancel {
+  background: #ddd8f8 !important;
+  color: #4b44d6 !important;
+}
+
+/* ── Add button always visible ── */
+.manage-dialog-panel .btn-add-sm {
+  background: #ddd8f8 !important;
+  color: #4f46e5 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.manage-dialog-panel .btn-add-sm:hover {
+  background: #4f46e5 !important;
+  color: #ffffff !important;
+}
+
+/* ── Remove border-radius from active list item ── */
+.manage-dialog-panel .list-item.active,
+.manage-dialog-panel .list-item:focus,
+.manage-dialog-panel .list-item:focus-visible {
+  border-radius: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 body {
-    font-family: 'Alexandria', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: 'Alexandria', sans-serif;
 }

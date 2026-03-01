@@ -1,0 +1,91 @@
+<div class="dialog-container">
+
+  <!-- Header -->
+  <div class="dialog-header">
+    <h2 class="dialog-title">{{ data.serviceTypeName }}</h2>
+    <button class="close-btn" (click)="onCancel()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Body -->
+  <div class="dialog-body">
+
+    <!-- Category Panel -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Category</span>
+        <button class="btn-add-sm" (click)="addCategory()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          Add
+        </button>
+      </div>
+      <div class="panel-list">
+        @for (cat of categories; track cat.id) {
+        <div class="list-item" [class.active]="selectedCategoryId === cat.id" (click)="selectCategory(cat)">
+          <span>{{ cat.name }}</span>
+          <button class="delete-btn" (click)="deleteCategory(cat, $event)" title="Delete">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6" />
+              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+              <path d="M10 11v6M14 11v6" />
+              <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+            </svg>
+          </button>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="panel-divider"></div>
+
+    <!-- Sub Category Panel -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Sub Category</span>
+        <button class="btn-add-sm" (click)="addSubCategory()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          Add
+        </button>
+      </div>
+      <div class="panel-list">
+        @for (sub of subCategories; track sub.id) {
+        <div class="list-item">
+          <span>{{ sub.name }}</span>
+          <button class="delete-btn" (click)="deleteSubCategory(sub)" title="Delete">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6" />
+              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+              <path d="M10 11v6M14 11v6" />
+              <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+            </svg>
+          </button>
+        </div>
+        }
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="dialog-footer">
+    <button class="btn-cancel" (click)="onCancel()">Cancel</button>
+    <button class="btn-save" (click)="onSave()">Save</button>
+  </div>
+
+</div>

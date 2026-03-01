@@ -1,19 +1,30 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CategoryCarouselComponent } from '../components/category-carousel/category-carousel';
 import { ServiceCarouselComponent } from '../components/service-carousel/service-carousel';
-import { JoinUsComponent } from '../components/join-us/join-us';
 import { FooterComponent } from '../components/footer/footer';
 import { NavbarComponent } from '../components/navbar/navbar';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, CategoryCarouselComponent, ServiceCarouselComponent, JoinUsComponent, FooterComponent, NavbarComponent],
+  imports: [CommonModule, ServiceCarouselComponent, FooterComponent, NavbarComponent],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class HomeComponent {
+  currentIndex = 0;
+
+  next() {
+      if (this.currentIndex < this.categories.length - 6) {
+          this.currentIndex++;
+      }
+  }
+
+  prev() {
+      if (this.currentIndex > 0) {
+          this.currentIndex--;
+      }
+  }
 
   categories = [
     { name: "Women's Salon & Spa", icon: "/make-up.png" },

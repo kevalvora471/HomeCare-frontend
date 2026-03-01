@@ -1,0 +1,27 @@
+<div class="dialog-container">
+
+  <!-- Header -->
+  <div class="dialog-header">
+    <h2 class="dialog-title">{{ data.title }}</h2>
+    <button class="close-btn" (click)="onCancel()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Input -->
+  <div class="dialog-body">
+    <input class="text-input" type="text" [placeholder]="data.placeholder" [(ngModel)]="inputValue"
+      (keydown.enter)="onSave()" autofocus />
+  </div>
+
+  <!-- Footer -->
+  <div class="dialog-footer">
+    <button class="btn-cancel" (click)="onCancel()">Cancel</button>
+    <button class="btn-save" (click)="onSave()">Save</button>
+  </div>
+
+</div>

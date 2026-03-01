@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #f0f2f8;
+  --card-bg: #ffffff;
+  --text-primary: #1a1d2e;
+  --text-muted: #8890a4;
+  --border: #e8eaf2;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --row-hover: #f7f8fc;
+  --shadow: 0 2px 16px rgba(79, 70, 229, 0.07);
+  --danger: #ef4444;
+  --danger-bg: #fff5f5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  font-family: 'Alexandria', sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  padding: 40px 32px;
+  color: var(--text-primary);
+}
+
+.page-title {
+  font-family: 'Alexandria', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* ── Card ─────────────────────────────── */
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  max-width: 900px;
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+  font-family: 'Alexandria', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 10px;
+  font-family: 'Alexandria', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.btn-add:hover {
+  background: var(--accent-hover);
+}
+
+.btn-add svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Table ────────────────────────────── */
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 10px 28px;
+  background: #fafbfd;
+  border-bottom: 1px solid var(--border);
+}
+
+.table-header span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 14px 28px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background: var(--row-hover);
+}
+
+.row-name {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.93rem;
+  font-weight: 500;
+}
+
+.row-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+/* ── Action Wrap ──────────────────────── */
+.action-wrap {
+  position: relative;
+}
+
+/* ── Three-dot Button ─────────────────── */
+.more-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.more-btn:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+/* ── Dropdown ─────────────────────────── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  min-width: 170px;
+  padding: 8px;
+  z-index: 9999;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+  padding: 4px 12px 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 6px;
+}
+
+/* ── Dropdown Items ───────────────────── */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Alexandria', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #3d3d3d;
+  cursor: pointer;
+  transition: background 0.13s, color 0.13s;
+  text-align: left;
+}
+
+.dropdown-item svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  color: #6b7280;
+  transition: color 0.13s;
+}
+
+.dropdown-item:hover {
+  background: var(--row-hover);
+  color: var(--accent);
+}
+
+.dropdown-item:hover svg {
+  color: var(--accent);
+}
+
+.dropdown-item.delete:hover {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.dropdown-item.delete:hover svg {
+  color: var(--danger);
+}

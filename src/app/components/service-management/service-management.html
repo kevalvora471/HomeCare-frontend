@@ -1,0 +1,144 @@
+<div class="row g-0">
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar d-none d-md-block">
+        <div class="brand">
+            Home<span>Care</span>
+        </div>
+        <nav class="nav flex-column">
+            <a href="#" class="nav-link" *ngFor="let item of sidebarItems" [class.active]="item.active">
+                <i class="bi" [ngClass]="item.icon"></i>
+                {{item.name}}
+                <i class="bi bi-chevron-down ms-auto" *ngIf="item.name === 'User Management'"></i>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-10 main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="user-profile">
+                <img src="/man-with-laptop.png" alt="Admin" class="avatar">
+                <div class="user-info">
+                    <h6>Leslie Alexander</h6>
+                    <small>Super Admin</small>
+                </div>
+                <i class="bi bi-chevron-down ms-2"></i>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="page-title mb-0">Service Management</h2>
+                <button class="btn btn-primary">
+                    <i class="bi bi-plus-lg me-1"></i> Add
+                </button>
+            </div>
+
+            <!-- Categories Section -->
+            <div class="category-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="category-header mb-0">
+                        <i class="bi bi-grid-3x3-gap-fill text-primary"></i>
+                        Cleaning
+                    </div>
+                    <div>
+                        <i class="bi bi-plus-circle text-primary me-2"></i>
+                        <i class="bi bi-chevron-up text-secondary"></i>
+                    </div>
+                </div>
+
+
+                <div class="category-tabs">
+                    <div class="cat-tab" *ngFor="let tab of categoryTabs" [class.active]="activeTab === tab.id"
+                        (click)="activeTab = tab.id">
+                        <i class="bi bi-grid-3x3-gap"></i>
+                        {{tab.name}}
+                        <span class="count ms-2">{{tab.count}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services List -->
+            <div class="services-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold mb-0">Full Home Cleaning Services</h5>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-light-primary">
+                            <i class="bi bi-funnel-fill me-1"></i> Filter
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="bi bi-plus-lg me-1"></i> Add
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Sub Category</th>
+                                <th>Price</th>
+                                <th>Commission</th>
+                                <th>Availability</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let service of services">
+                                <td>{{service.id}}</td>
+                                <td>{{service.name}}</td>
+                                <td>{{service.subCategory}}</td>
+                                <td>${{service.price}}</td>
+                                <td>{{service.commission}}</td>
+                                <td>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox"
+                                            [checked]="service.availability">
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="action-btn">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Other Categories (Collapsed) -->
+            <div class="category-card mt-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="category-header mb-0">
+                        <i class="bi bi-grid-3x3-gap text-secondary"></i>
+                        Women's Salon & Spa
+                    </div>
+                    <i class="bi bi-chevron-down text-secondary"></i>
+                </div>
+            </div>
+            <div class="category-card mt-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="category-header mb-0">
+                        <i class="bi bi-grid-3x3-gap text-secondary"></i>
+                        Men's Salon & Massage
+                    </div>
+                    <i class="bi bi-chevron-down text-secondary"></i>
+                </div>
+            </div>
+            <div class="category-card mt-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="category-header mb-0">
+                        <i class="bi bi-grid-3x3-gap text-secondary"></i>
+                        Ac & Appliance Repair
+                    </div>
+                    <i class="bi bi-chevron-down text-secondary"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
