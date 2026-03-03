@@ -29,7 +29,10 @@ export class MasterDataComponent {
   onManage(service: ServiceType): void {
     this.closeMenu();
     this.dialog.open(ManageDialogComponent, {
-      data: { serviceTypeName: service.name },
+      data: { 
+        serviceTypeId: service.id,
+        serviceTypeName: service.name 
+      },
       panelClass: 'manage-dialog-panel',
       width: '800px',
       height: '516px',
