@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Category, SubCategory } from '../services.data';
@@ -13,9 +13,9 @@ export interface ServiceType {
   providedIn: 'root'
 })
 export class ServicesApiService {
+  private http = inject(HttpClient);
   private baseUrl = 'http://localhost:5269/api';
 
-  constructor(private http: HttpClient) { }
 
   // Get categories by service type
   getCategoriesByServiceType(serviceTypeId: number) {
@@ -42,7 +42,7 @@ export class ServicesApiService {
       .post<any>(`${this.baseUrl}/SubCategory`, dto)
       .pipe(map(res => res.data));
   }
-  
+
   deleteCategory(id: number) {
     return this.http.delete(`${this.baseUrl}/Category/${id}`);
   }

@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog';
 import { ServicesApiService } from '../Services/service';
+import { ToastrService } from 'ngx-toastr';
 
 export interface ManageDialogData {
   serviceTypeId: number;     // ✅ now we use ID
@@ -32,12 +33,13 @@ export class ManageDialogComponent implements OnInit {
   data = inject<ManageDialogData>(MAT_DIALOG_DATA);
   dialog = inject(MatDialog);
   private service = inject(ServicesApiService);
-
+  private toastr = inject(ToastrService);
   categories: Category[] = [];
   subCategories: SubCategory[] = [];
   selectedCategoryId: number = -1;
 
-  // ✅ Load categories when dialog opens
+
+  // Load categories when dialog opens
   ngOnInit(): void {
     this.loadCategories();
   }
@@ -85,15 +87,17 @@ export class ManageDialogComponent implements OnInit {
         serviceTypeId: this.data.serviceTypeId
       }).subscribe({
         next: (newCategory) => {
-  
-          // ✅ Add new category to list
+          
+          // Add new category to list
           this.categories = [...this.categories, newCategory];
-  
-          // ✅ Select the newly created category
+          
+          // Select the newly created category
           this.selectedCategoryId = newCategory.id;
-  
-          // ✅ Clear subcategories (because new category has none)
+          
+          // Clear subcategories (because new category has none)
           this.subCategories = [];
+
+          this.toastr.success('Category created successfully');
         },
         error: (err) => console.error(err)
       });
@@ -123,6 +127,8 @@ export class ManageDialogComponent implements OnInit {
           if (selected) {
             this.selectCategory(selected);
           }
+
+          this.toastr.success('Sub-Category created successfully');
         },
         error: (err) => console.error(err)
       });
@@ -151,6 +157,8 @@ export class ManageDialogComponent implements OnInit {
             this.subCategories = [];
           }
         }
+
+        this.toastr.success('Category deleted successfully');
       },
       error: (err) => console.error(err)
     });
@@ -162,6 +170,7 @@ export class ManageDialogComponent implements OnInit {
       next: () => {
         // Remove from UI
         this.subCategories = this.subCategories.filter(s => s.id !== sub.id);
+        this.toastr.success('Sub-Category deleted successfully');
       },
       error: (err) => console.error(err)
     });
