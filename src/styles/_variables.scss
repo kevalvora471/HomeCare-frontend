@@ -1,0 +1,246 @@
+// =============================
+// COLORS
+// =============================
+
+// ── PRIMARY (#2555FF) ─────────────────────────────────────────────────────────
+$primary: #443fe0;
+
+// Primary Shades (dark → black)
+$primary-shade-1:  #2249e6;
+$primary-shade-2:  #1e3ecc;
+$primary-shade-3:  #1b34b3;
+$primary-shade-4:  #172a99;
+$primary-shade-5:  #142180;
+$primary-shade-6:  #101866;
+$primary-shade-7:  #0d104d;
+$primary-shade-8:  #090933;
+$primary-shade-9:  #06051a;
+$primary-shade-10: #02020a;
+
+// Primary Tints (light → white)
+$primary-tint-1:  #3d67ff;
+$primary-tint-2:  #5579ff;
+$primary-tint-3:  #6e8bff;
+$primary-tint-4:  #869dff;
+$primary-tint-5:  #9fb0ff;
+$primary-tint-6:  #b7c2ff;
+$primary-tint-7:  #cfd4ff;
+$primary-tint-8:  #e7e7ff;
+$primary-tint-9:  #f0f2ff;
+$primary-tint-10: #f8f9ff;
+
+// ── SECONDARY (#4859A6) ───────────────────────────────────────────────────────
+// Muted blue-violet — from the Angular Material secondary palette tone 40
+$secondary: #4859A6;
+
+// Secondary Shades (dark → black)
+$secondary-shade-1:  #404f95;
+$secondary-shade-2:  #394584;
+$secondary-shade-3:  #323c74;
+$secondary-shade-4:  #2b3263;
+$secondary-shade-5:  #242952;
+$secondary-shade-6:  #1c1f41;
+$secondary-shade-7:  #151631;
+$secondary-shade-8:  #0e0e20;
+$secondary-shade-9:  #070710;
+$secondary-shade-10: #020208;
+
+// Secondary Tints (light → white)
+$secondary-tint-1:  #5a6ab1;
+$secondary-tint-2:  #6c7bbc;
+$secondary-tint-3:  #7e8dc8;
+$secondary-tint-4:  #909ed3;
+$secondary-tint-5:  #a2afde;
+$secondary-tint-6:  #b5c0e9;
+$secondary-tint-7:  #c7d1f4;
+$secondary-tint-8:  #dde1ff;
+$secondary-tint-9:  #eef0ff;
+$secondary-tint-10: #f6f7ff;
+
+// ── TERTIARY (#3a1db9) ────────────────────────────────────────────────────────
+// Deep violet — from Angular Material tertiary palette tone 40
+$tertiary: #3a1db9;
+
+// Tertiary Shades (dark → black)
+$tertiary-shade-1:  #3319a6;
+$tertiary-shade-2:  #2d1693;
+$tertiary-shade-3:  #261280;
+$tertiary-shade-4:  #200f6d;
+$tertiary-shade-5:  #190c5a;
+$tertiary-shade-6:  #130947;
+$tertiary-shade-7:  #0c0634;
+$tertiary-shade-8:  #060321;
+$tertiary-shade-9:  #03020e;
+$tertiary-shade-10: #010107;
+
+// Tertiary Tints (light → white)
+$tertiary-tint-1:  #4e32c4;
+$tertiary-tint-2:  #6248cf;
+$tertiary-tint-3:  #775dda;
+$tertiary-tint-4:  #8b73e5;
+$tertiary-tint-5:  #a089ef;
+$tertiary-tint-6:  #b49ff8;
+$tertiary-tint-7:  #c9b6ff;
+$tertiary-tint-8:  #ddd0ff;
+$tertiary-tint-9:  #eee7ff;
+$tertiary-tint-10: #f7f4ff;
+
+// ── SUCCESS (#2e7d32) ─────────────────────────────────────────────────────────
+$success: #2e7d32;
+
+// Success Shades
+$success-shade-1:  #29702d;
+$success-shade-2:  #246228;
+$success-shade-3:  #1f5523;
+$success-shade-4:  #1a481e;
+$success-shade-5:  #153a18;
+$success-shade-6:  #102d13;
+$success-shade-7:  #0b200e;
+$success-shade-8:  #071408;
+$success-shade-9:  #030804;
+$success-shade-10: #010301;
+
+// Success Tints
+$success-tint-1:  #438a47;
+$success-tint-2:  #58975c;
+$success-tint-3:  #6da571;
+$success-tint-4:  #82b286;
+$success-tint-5:  #97bf9b;
+$success-tint-6:  #abccaf;
+$success-tint-7:  #c0dac3;
+$success-tint-8:  #d5e7d7;
+$success-tint-9:  #eaf3eb;
+$success-tint-10: #f4f9f5;
+
+// ── WARNING (#f57c00) ─────────────────────────────────────────────────────────
+$warning: #f57c00;
+
+// Warning Shades
+$warning-shade-1:  #dc7000;
+$warning-shade-2:  #c36300;
+$warning-shade-3:  #aa5700;
+$warning-shade-4:  #914a00;
+$warning-shade-5:  #783e00;
+$warning-shade-6:  #5f3100;
+$warning-shade-7:  #462400;
+$warning-shade-8:  #2d1800;
+$warning-shade-9:  #140b00;
+$warning-shade-10: #070500;
+
+// Warning Tints
+$warning-tint-1:  #f68a1a;
+$warning-tint-2:  #f79833;
+$warning-tint-3:  #f8a64d;
+$warning-tint-4:  #f9b466;
+$warning-tint-5:  #fac280;
+$warning-tint-6:  #fbd099;
+$warning-tint-7:  #fcddb3;
+$warning-tint-8:  #fdeacc;
+$warning-tint-9:  #fef4e5;
+$warning-tint-10: #fff9f2;
+
+// ── ERROR (#ba1a1a) ───────────────────────────────────────────────────────────
+// From Angular Material error palette tone 40
+$error: #ba1a1a;
+
+// Error Shades
+$error-shade-1:  #a71717;
+$error-shade-2:  #941515;
+$error-shade-3:  #811212;
+$error-shade-4:  #6e0f0f;
+$error-shade-5:  #5b0c0c;
+$error-shade-6:  #480a0a;
+$error-shade-7:  #350707;
+$error-shade-8:  #220404;
+$error-shade-9:  #100202;
+$error-shade-10: #060101;
+
+// Error Tints
+$error-tint-1:  #c13131;
+$error-tint-2:  #c94848;
+$error-tint-3:  #d15f5f;
+$error-tint-4:  #d87676;
+$error-tint-5:  #e08d8d;
+$error-tint-6:  #e8a3a3;
+$error-tint-7:  #efbaba;
+$error-tint-8:  #f5d1d1;
+$error-tint-9:  #fae8e8;
+$error-tint-10: #fdf4f4;
+
+// ── NEUTRAL (surface / text / border) ────────────────────────────────────────
+$neutral-900: #191b25;
+$neutral-800: #2e303a;
+$neutral-700: #454651;
+$neutral-600: #5d5e69;
+$neutral-500: #757682;
+$neutral-400: #8f909c;
+$neutral-300: #aaaab7;
+$neutral-200: #c5c5d3;
+$neutral-100: #e2e1ef;
+$neutral-50:  #f0effd;
+$neutral-0:   #ffffff;
+
+// ── SEMANTIC ALIASES (map to neutrals) ───────────────────────────────────────
+$dark-text:    $neutral-900; /* use deepest neutral for maximum contrast */
+$light-text:   #666666;
+$dark-border:  #DDDDDD;
+$light-border: #CCCCCC;
+$white:        #FFFFFF;
+
+
+// =============================
+// TYPOGRAPHY
+// =============================
+
+$font-family: 'Alexandria', sans-serif;
+
+// Font Sizes
+$fs-h1:        96px;
+$fs-h2:        60px;
+$fs-h3:        48px;
+$fs-h4:        32px;
+$fs-h5:        24px;
+$fs-h6:        20px;
+$fs-subtitle1: 16px;
+$fs-subtitle2: 14px;
+$fs-body1:     16px;
+$fs-body2:     14px;
+$fs-button:    14px;
+$fs-caption:   12px;
+$fs-overline:  10px;
+
+// Line Heights
+$lh-h1:        128px;
+$lh-h2:        80px;
+$lh-h3:        60px;
+$lh-h4:        44px;
+$lh-h5:        32px;
+$lh-h6:        26px;
+$lh-subtitle1: 22px;
+$lh-subtitle2: 20px;
+$lh-body1:     22px;
+$lh-body2:     20px;
+$lh-button:    20px;
+$lh-caption:   16px;
+$lh-overline:  14px;
+
+// Font Weights
+$fw-regular:  400;
+$fw-medium:   500;
+$fw-semibold: 600;
+$fw-bold:     700;
+
+// Letter Spacing
+$ls-h1:        -1.5px;
+$ls-h2:        -0.5px;
+$ls-h3:        0px;
+$ls-h4:        0.25px;
+$ls-h5:        0px;
+$ls-h6:        0.15px;
+$ls-subtitle1: 0.15px;
+$ls-subtitle2: 0.1px;
+$ls-body1:     0.5px;
+$ls-body2:     0.25px;
+$ls-button:    1.25px;
+$ls-caption:   0.4px;
+$ls-overline:  1.5px;

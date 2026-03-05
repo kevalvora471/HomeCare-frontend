@@ -34,9 +34,7 @@ export class MasterDataComponent {
         serviceTypeName: service.name 
       },
       panelClass: 'manage-dialog-panel',
-      width: '800px',
-      height: '516px',
-      maxWidth: '95vw',
+      maxWidth: '90vw',
       disableClose: false
     });
   }

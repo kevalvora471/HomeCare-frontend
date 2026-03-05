@@ -15,7 +15,7 @@
   <!-- Input -->
   <div class="dialog-body">
     <input class="text-input" type="text" [placeholder]="data.placeholder" [(ngModel)]="inputValue"
-      (keydown.enter)="onSave()" autofocus />
+      (keyup.enter)="onSave()" />
   </div>
 
   <!-- Footer -->

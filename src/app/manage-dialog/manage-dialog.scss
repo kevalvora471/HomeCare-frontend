@@ -1,0 +1,243 @@
+@use '../../styles/variables' as *;
+
+// =============================
+// SEMANTIC COLOR ALIASES
+// =============================
+$color-accent: $primary;
+$color-border: $neutral-100;
+$color-text: $dark-text;
+$color-text-muted: $light-text;
+$color-danger: $error;
+$color-danger-bg: $error-tint-8;
+$color-row-hover: $secondary-tint-9;
+$color-button-secondary: $secondary-tint-7;
+
+// =============================
+// DIALOG STYLES
+// =============================
+
+.dialog-container {
+  font-family: $font-family;
+  display: flex;
+  flex-direction: column;
+  width: 850px;
+  /* Changed from 1000px to 850px */
+  max-width: 95vw;
+  background: $neutral-0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+}
+
+.dialog-title {
+  font-family: $font-family;
+  font-size: $fs-h6;
+  font-weight: $fw-bold;
+  color: $color-text;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $color-text-muted;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s, background 0.15s;
+
+  &:hover {
+    color: $color-text;
+    background: $color-border;
+  }
+}
+
+.dialog-body {
+  display: flex;
+  margin: 2px 25px;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel-divider {
+  width: 1px;
+  /* Thin vertical line */
+  flex-shrink: 0;
+  /* Don't shrink */
+  background: $color-border;
+  /* Line color */
+}
+
+.panel-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid $color-border;
+  background: $neutral-0;
+}
+
+.panel-title {
+  font-family: $font-family;
+  font-size: $fs-subtitle1;
+  font-weight: $fw-bold;
+  color: $color-text;
+  margin: 0;
+}
+
+.btn-add-sm {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: $primary-tint-7 !important;
+  color: $primary !important;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: $font-family;
+  font-size: $fs-button;
+  font-weight: $fw-bold;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover {
+    background: $primary-tint-6 !important;
+  }
+}
+
+.panel-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: none;  /* Remove the line */
+  cursor: pointer;
+  transition: background 0.13s;
+  font-size: $fs-body2;
+  font-weight: $fw-medium;
+  color: $color-text;
+  min-height: 56px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $neutral-50;
+  }
+
+  &.active {
+    background: #f5f5f5 !important;
+    font-weight: $fw-bold;
+    border-radius: 0;
+    margin: 0;
+    outline: none;
+  }
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $neutral-900;
+  padding: 8px;
+  /* Increase padding */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: color 0.13s, background 0.13s;
+  opacity: 1 !important;
+  font-size: 24px;
+  /* Make icon larger */
+
+  &:hover {
+    color: $color-danger;
+    background: $color-danger-bg;
+  }
+}
+
+.dialog-footer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+}
+
+.btn-cancel {
+  padding: 12px 32px;
+  border-radius: 10px;
+  border: none;
+  background: $primary-tint-7 !important;
+  color: $primary !important;
+  font-family: $font-family;
+  font-size: $fs-button;
+  font-weight: $fw-bold;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: $primary-tint-6 !important;
+  }
+}
+
+.btn-save {
+  padding: 12px 32px;
+  border-radius: 10px;
+  border: none;
+  background: $primary !important;
+  color: $neutral-0 !important;
+  font-family: $font-family;
+  font-size: $fs-button;
+  font-weight: $fw-bold;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: $primary-shade-1 !important;
+  }
+}
+
+.panel-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.panel-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel-list::-webkit-scrollbar-thumb {
+  background: $neutral-200;
+  border-radius: 99px;
+
+  &:hover {
+    background: $neutral-300;
+  }
+}

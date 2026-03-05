@@ -26,7 +26,7 @@ export interface SubCategory {
   standalone: true,
   imports: [],
   templateUrl: './manage-dialog.html',
-  styleUrl: './manage-dialog.css'
+  styleUrl: './manage-dialog.scss'
 })
 export class ManageDialogComponent implements OnInit {
 
@@ -61,7 +61,8 @@ export class ManageDialogComponent implements OnInit {
 
   selectCategory(cat: Category): void {
     this.selectedCategoryId = cat.id;
-    
+    this.subCategories = [];
+
     this.service.getSubCategoriesByCategory(cat.id)
       .subscribe({
         next: (res: SubCategory[]) => {
@@ -80,7 +81,7 @@ export class ManageDialogComponent implements OnInit {
       maxWidth: '95vw'
     });
 
-    ref.afterClosed().subscribe((name: string | null) => {
+    ref.afterClosed().subscribe((name: string) => {
       if (!name) return;
 
       this.service.createCategory({
@@ -108,7 +109,7 @@ export class ManageDialogComponent implements OnInit {
       maxWidth: '95vw'
     });
 
-    ref.afterClosed().subscribe((name: string | null) => {
+    ref.afterClosed().subscribe((name: string) => {
       if (!name) return;
 
       this.service.createSubCategory({
