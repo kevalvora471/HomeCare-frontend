@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dial
 import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog';
 import { ServicesApiService } from '../Services/service';
 import { ToastrService } from 'ngx-toastr';
+import { DeleteConfirmationDialog } from '../delete-confirmation-dialog/delete-confirmation-dialog';
 
 export interface ManageDialogData {
   serviceTypeId: number;     // ✅ now we use ID
@@ -60,7 +61,7 @@ export class ManageDialogComponent implements OnInit {
 
   selectCategory(cat: Category): void {
     this.selectedCategoryId = cat.id;
-
+    
     this.service.getSubCategoriesByCategory(cat.id)
       .subscribe({
         next: (res: SubCategory[]) => {
@@ -78,25 +79,18 @@ export class ManageDialogComponent implements OnInit {
       width: '560px',
       maxWidth: '95vw'
     });
-  
+
     ref.afterClosed().subscribe((name: string | null) => {
       if (!name) return;
-  
+
       this.service.createCategory({
         name: name,
         serviceTypeId: this.data.serviceTypeId
       }).subscribe({
         next: (newCategory) => {
-          
-          // Add new category to list
           this.categories = [...this.categories, newCategory];
-          
-          // Select the newly created category
           this.selectedCategoryId = newCategory.id;
-          
-          // Clear subcategories (because new category has none)
           this.subCategories = [];
-
           this.toastr.success('Category created successfully');
         },
         error: (err) => console.error(err)
@@ -137,42 +131,79 @@ export class ManageDialogComponent implements OnInit {
 
   deleteCategory(cat: Category, event: MouseEvent): void {
     event.stopPropagation();
-  
-    this.service.deleteCategory(cat.id).subscribe({
-      next: () => {
-  
-        // Remove from UI
-        this.categories = this.categories.filter(c => c.id !== cat.id);
-  
-        // If deleted category was selected
-        if (this.selectedCategoryId === cat.id) {
-  
-          if (this.categories.length > 0) {
-            // Select first remaining category
-            const first = this.categories[0];
-            this.selectCategory(first);
-          } else {
-            // No categories left
-            this.selectedCategoryId = -1;
-            this.subCategories = [];
-          }
-        }
 
-        this.toastr.success('Category deleted successfully');
-      },
-      error: (err) => console.error(err)
+    // Open confirmation dialog
+    this.dialog.open(DeleteConfirmationDialog, {
+      width: '520px',
+      data: {
+        title: 'Delete Category',
+        message: 'Are you sure you want to delete this category? All associated sub-categories will also be deleted.',
+        itemName: cat.name,
+        deleteButtonText: 'Delete',
+        cancelButtonText: 'Cancel'
+      }
+    }).afterClosed().subscribe((confirmed) => {
+      if (confirmed) {
+        // User confirmed, proceed with delete
+        this.service.deleteCategory(cat.id).subscribe({
+          next: () => {
+            // Remove from UI
+            this.categories = this.categories.filter(c => c.id !== cat.id);
+
+            // If deleted category was selected
+            if (this.selectedCategoryId === cat.id) {
+              if (this.categories.length > 0) {
+                // Select first remaining category
+                const first = this.categories[0];
+                this.selectCategory(first);
+              } else {
+                // No categories left
+                this.selectedCategoryId = -1;
+                this.subCategories = [];
+              }
+            }
+
+            this.toastr.success('Category deleted successfully');
+          },
+          error: (err) => {
+            console.error(err);
+            this.toastr.error('Failed to delete category');
+          }
+        });
+      }
     });
   }
 
-  deleteSubCategory(sub: SubCategory): void {
+  deleteSubCategory(sub: SubCategory, event?: MouseEvent): void {
+    if (event) {
+      event.stopPropagation();
+    }
 
-    this.service.deleteSubCategory(sub.id).subscribe({
-      next: () => {
-        // Remove from UI
-        this.subCategories = this.subCategories.filter(s => s.id !== sub.id);
-        this.toastr.success('Sub-Category deleted successfully');
-      },
-      error: (err) => console.error(err)
+    // Open confirmation dialog
+    this.dialog.open(DeleteConfirmationDialog, {
+      width: '520px',
+      data: {
+        title: 'Delete Sub Category',
+        message: 'Are you sure you want to delete this sub category?',
+        itemName: sub.name,
+        deleteButtonText: 'Delete',
+        cancelButtonText: 'Cancel'
+      }
+    }).afterClosed().subscribe((confirmed) => {
+      if (confirmed) {
+        // User confirmed, proceed with delete
+        this.service.deleteSubCategory(sub.id).subscribe({
+          next: () => {
+            // Remove from UI
+            this.subCategories = this.subCategories.filter(s => s.id !== sub.id);
+            this.toastr.success('Sub-Category deleted successfully');
+          },
+          error: (err) => {
+            console.error(err);
+            this.toastr.error('Failed to delete sub category');
+          }
+        });
+      }
     });
   }
 

@@ -66,7 +66,7 @@
         @for (sub of subCategories; track sub.id) {
         <div class="list-item">
           <span>{{ sub.name }}</span>
-          <button class="delete-btn" (click)="deleteSubCategory(sub)" title="Delete">
+          <button class="delete-btn" (click)="deleteSubCategory(sub,$event)" title="Delete">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
               stroke-linecap="round" stroke-linejoin="round">
               <polyline points="3 6 5 6 21 6" />

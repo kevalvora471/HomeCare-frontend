@@ -13,6 +13,7 @@ export interface ServiceType {
   providedIn: 'root'
 })
 export class ServicesApiService {
+  
   private http = inject(HttpClient);
   private baseUrl = 'http://localhost:5269/api';
 
@@ -21,20 +22,20 @@ export class ServicesApiService {
   getCategoriesByServiceType(serviceTypeId: number) {
     return this.http
       .get<any>(`${this.baseUrl}/Category/service-type/${serviceTypeId}`)
-      .pipe(map(res => res.data));   // 🔥 unwrap here
+      .pipe(map(res => res.data)); 
   }
 
   // Get subcategories by category
   getSubCategoriesByCategory(categoryId: number) {
     return this.http
       .get<any>(`${this.baseUrl}/SubCategory/category/${categoryId}`)
-      .pipe(map(res => res.data));   // 🔥 unwrap here
+      .pipe(map(res => res.data));
   }
 
   createCategory(dto: { name: string; serviceTypeId: number }) {
     return this.http
       .post<any>(`${this.baseUrl}/Category`, dto)
-      .pipe(map(res => res.data));   // unwrap if backend wraps
+      .pipe(map(res => res.data));  
   }
 
   createSubCategory(dto: { name: string; categoryId: number }) {
