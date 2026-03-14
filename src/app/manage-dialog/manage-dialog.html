@@ -2,7 +2,7 @@
 
   <!-- Header -->
   <div class="dialog-header">
-    <h2 class="dialog-title">{{ data.serviceTypeName }}</h2>
+    <h2 class="dialog-title">{{ data.serviceTypeName }} Service</h2>
     <button class="close-btn" (click)="onCancel()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round">
@@ -46,7 +46,6 @@
       </div>
     </div>
 
-    <!-- Divider -->
     <div class="panel-divider"></div>
 
     <!-- Sub Category Panel -->
@@ -66,7 +65,7 @@
         @for (sub of subCategories; track sub.id) {
         <div class="list-item">
           <span>{{ sub.name }}</span>
-          <button class="delete-btn" (click)="deleteSubCategory(sub)" title="Delete">
+          <button class="delete-btn" (click)="deleteSubCategory(sub,$event)" title="Delete">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
               stroke-linecap="round" stroke-linejoin="round">
               <polyline points="3 6 5 6 21 6" />
