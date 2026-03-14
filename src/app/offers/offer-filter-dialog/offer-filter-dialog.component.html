@@ -1,0 +1,64 @@
+<div class="dialog-container">
+    <div class="dialog-header">
+        <h2 mat-dialog-title class="dialog-title">Filter</h2>
+        <button class="close-btn" (click)="onCancel()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+
+    <mat-dialog-content class="dialog-content">
+        <form [formGroup]="filterForm" class="filter-form">
+
+            <!-- Discount Input -->
+            <mat-form-field appearance="outline" class="full-width discount-field">
+                <input matInput formControlName="discount" type="number" placeholder="Coupon Discount">
+                <span matTextSuffix class="discount-suffix">%</span>
+            </mat-form-field>
+
+            <!-- Coupon Applied Slider -->
+            <div class="slider-section">
+                <label class="slider-label">Coupon Applied</label>
+
+                <div class="slider-wrapper">
+                    <!-- Custom floating tooltips for Min and Max mimicking design -->
+                    <div class="slider-tooltips">
+                        <span class="tooltip-bubble min-tooltip"
+                            [style.left]="((appliedMinVal - sliderMin) / (sliderMax - sliderMin) * 100) + '%'">
+                            {{ formatLabel(appliedMinVal) }}
+                        </span>
+                        <span class="tooltip-bubble max-tooltip"
+                            [style.left]="((appliedMaxVal - sliderMin) / (sliderMax - sliderMin) * 100) + '%'">
+                            {{ formatLabel(appliedMaxVal) }}
+                        </span>
+                    </div>
+
+                    <mat-slider class="custom-slider" [min]="sliderMin" [max]="sliderMax" step="1">
+                        <input matSliderStartThumb formControlName="appliedMin">
+                        <input matSliderEndThumb formControlName="appliedMax">
+                    </mat-slider>
+
+                    <div class="slider-bounds">
+                        <span>{{ formatLabel(sliderMin) }}</span>
+                        <span>{{ formatLabel(sliderMax) }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Availability Toggle -->
+            <div class="toggle-section">
+                <span class="toggle-label">Availability</span>
+                <mat-slide-toggle formControlName="isActive" class="custom-toggle"></mat-slide-toggle>
+            </div>
+
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="dialog-actions">
+        <button class="btn-cancel" (click)="onCancel()">Cancel</button>
+        <button class="btn-filter" (click)="onFilter()">Filter</button>
+    </mat-dialog-actions>
+</div>

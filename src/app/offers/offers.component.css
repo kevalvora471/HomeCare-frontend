@@ -1,0 +1,278 @@
+:host {
+    display: block;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 16px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+    :host {
+        padding: 24px;
+    }
+}
+
+.offers-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.offers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.offers-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    color: #2c2e33;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-filter {
+    background-color: #f0f0ff;
+    color: #5a5ce8;
+}
+
+.btn-filter:hover {
+    background-color: #e5e5ff;
+}
+
+.btn-add {
+    background-color: #4a4cee;
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #3b3cd9;
+}
+
+.table-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table.offers-table {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+th.mat-header-cell {
+    padding: 18px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #9299a6;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+td.mat-cell {
+    padding: 18px 24px;
+    font-size: 14px;
+    color: #4a4a4a;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+/* Material table overrides specific to this design */
+.mat-mdc-row:hover {
+    background-color: #fafbfc;
+}
+
+.code-cell,
+.discount-cell {
+    font-weight: 600;
+    color: #333;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.status-pill.active {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-pill.active .dot {
+    background-color: #2e7d32;
+}
+
+.status-pill.inactive {
+    background-color: #fbe9e7;
+    color: #c62828;
+}
+
+.status-pill.inactive .dot {
+    background-color: #c62828;
+}
+
+.action-header {
+    text-align: right;
+    padding-right: 24px !important;
+}
+
+.action-cell {
+    text-align: right;
+    padding-right: 24px !important;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: #8c8c8c;
+    cursor: pointer;
+    padding: 8px 0;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.btn-icon:disabled {
+    color: #d1d5db;
+    cursor: not-allowed;
+    background: none;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px 24px;
+    font-size: 14px;
+    color: #666;
+    gap: 24px;
+}
+
+.rows-per-page select {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 4px;
+    outline: none;
+    font-weight: 500;
+}
+
+.page-info {
+    font-weight: 500;
+}
+
+.page-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Responsiveness for columns */
+@media (max-width: 900px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+}
+
+/* Custom Action Menu Overrides */
+::ng-deep .cdk-overlay-container {
+    z-index: 10000 !important;
+}
+
+::ng-deep .custom-action-menu {
+    border-radius: 12px !important;
+    padding: 12px 6px !important;
+    min-width: 140px;
+    background-color: white !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+::ng-deep .custom-action-menu .mat-mdc-menu-item {
+    display: flex !important;
+    align-items: center;
+    min-height: 48px !important;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+::ng-deep .custom-action-menu .menu-icon {
+    margin-right: 14px;
+    color: #616161;
+}
+
+::ng-deep .custom-action-menu .menu-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Modal Right Sliding Adjustments */
+::ng-deep .cdk-overlay-pane.right-sliding-dialog {
+    margin: 0 !important;
+    max-width: none !important;
+    position: fixed !important;
+    right: 0 !important;
+    top: 0 !important;
+    height: 100vh !important;
+    box-sizing: border-box;
+    animation: slideInRight 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards !important;
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+::ng-deep .right-sliding-dialog .mat-mdc-dialog-container,
+::ng-deep .right-sliding-dialog .mdc-dialog__surface {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    min-height: 100vh !important;
+    box-sizing: border-box;
+}

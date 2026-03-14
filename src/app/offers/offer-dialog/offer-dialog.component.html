@@ -1,0 +1,44 @@
+<div class="dialog-container">
+    <div class="dialog-header">
+        <h2 mat-dialog-title class="dialog-title">{{ isEditMode ? 'Edit Offer' : 'Add Offer' }}</h2>
+        <button class="close-btn" (click)="onCancel()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+
+    <mat-dialog-content class="dialog-content">
+        <form [formGroup]="offerForm" class="offer-form">
+
+            <mat-form-field appearance="outline" class="full-width">
+                <input matInput formControlName="code" placeholder="Coupon Code">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <textarea matInput formControlName="description" rows="3" placeholder="Coupon Description"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width discount-field">
+                <input matInput formControlName="discount" type="number" placeholder="Coupon Discount">
+                <span matTextSuffix class="discount-suffix">%</span>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width" *ngIf="isEditMode">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                    <mat-option value="Active">Active</mat-option>
+                    <mat-option value="Inactive">Inactive</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="dialog-actions">
+        <button class="btn-cancel" (click)="onCancel()">Cancel</button>
+        <button class="btn-save" (click)="onSave()" [disabled]="offerForm.invalid">Save</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,147 @@
+<div class="offers-container">
+    <div class="offers-header">
+        <h1>Offers</h1>
+        <div class="header-actions">
+            <!-- Filter Button -->
+            <button class="btn btn-filter" (click)="openFilterDialog()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="21" x2="4" y2="14"></line>
+                    <line x1="4" y1="10" x2="4" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12" y2="3"></line>
+                    <line x1="20" y1="21" x2="20" y2="16"></line>
+                    <line x1="20" y1="12" x2="20" y2="3"></line>
+                    <line x1="1" y1="14" x2="7" y2="14"></line>
+                    <line x1="9" y1="8" x2="15" y2="8"></line>
+                    <line x1="17" y1="16" x2="23" y2="16"></line>
+                </svg>
+                Filter
+            </button>
+            <button class="btn btn-add" (click)="openAddDialog()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Add
+            </button>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource" class="offers-table">
+
+                <!-- Coupon Code Column -->
+                <ng-container matColumnDef="code">
+                    <th mat-header-cell *matHeaderCellDef> Coupon Code </th>
+                    <td mat-cell *matCellDef="let element" class="code-cell"> {{element.code}} </td>
+                </ng-container>
+
+                <!-- Coupon Description Column -->
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef class="hide-on-mobile"> Coupon Description </th>
+                    <td mat-cell *matCellDef="let element" class="hide-on-mobile"> {{element.description}} </td>
+                </ng-container>
+
+                <!-- Coupon Discount Column -->
+                <ng-container matColumnDef="discount">
+                    <th mat-header-cell *matHeaderCellDef> Coupon Discount </th>
+                    <td mat-cell *matCellDef="let element" class="discount-cell"> {{element.discount}} </td>
+                </ng-container>
+
+                <!-- Coupon Applied Column -->
+                <ng-container matColumnDef="applied">
+                    <th mat-header-cell *matHeaderCellDef class="hide-on-mobile"> Coupon Applied </th>
+                    <td mat-cell *matCellDef="let element" class="hide-on-mobile"> {{element.applied}} </td>
+                </ng-container>
+
+                <!-- Status Column -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let element">
+                        <span class="status-pill"
+                            [ngClass]="{'active': element.status === 'Active', 'inactive': element.status === 'Inactive'}">
+                            <span class="dot"></span> {{ element.status }}
+                        </span>
+                    </td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef class="action-header"> Action </th>
+                    <td mat-cell *matCellDef="let element" class="action-cell">
+                        <button class="btn-icon" [matMenuTriggerFor]="actionMenu"
+                            [matMenuTriggerData]="{offer: element}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="1.5"></circle>
+                                <circle cx="12" cy="5" r="1.5"></circle>
+                                <circle cx="12" cy="19" r="1.5"></circle>
+                            </svg>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <!-- Action Menu -->
+            <mat-menu #actionMenu="matMenu" xPosition="before" class="custom-action-menu">
+                <ng-template matMenuContent let-offer="offer">
+                    <button mat-menu-item (click)="openEditDialog(offer)">
+                        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" style="margin-right: 12px;">
+                            <path d="M12 20h9"></path>
+                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                        </svg>
+                        <span class="menu-text">Edit</span>
+                    </button>
+                    <button mat-menu-item>
+                        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" style="margin-right: 12px;">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 0 0 1-2-2V6m3 0V4a2 0 0 1 2-2h4a2 0 0 1 2 2v2"></path>
+                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                            <line x1="14" y1="11" x2="14" y2="17"></line>
+                        </svg>
+                        <span class="menu-text">Delete</span>
+                    </button>
+                </ng-template>
+            </mat-menu>
+        </div>
+
+        <div class="pagination">
+            <div class="rows-per-page">
+                Rows per page:
+                <select>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                </select>
+            </div>
+            <div class="page-info">
+                1-10 of 100
+            </div>
+            <div class="page-actions">
+                <button class="btn-icon" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button class="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
